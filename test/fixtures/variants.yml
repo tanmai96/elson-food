@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  mode: MyString
+  pieces: 1
+  box_size: 1
+  MRP: MyString
+  product: one
+
+two:
+  name: MyString
+  mode: MyString
+  pieces: 1
+  box_size: 1
+  MRP: MyString
+  product: two

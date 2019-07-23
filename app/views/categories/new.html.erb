@@ -1,0 +1,19 @@
+<% if @category.errors.any? %>
+  <% @category.errors.full_messages.each do |msg| %>
+    <ul>
+      <li><%=msg%></li>
+    </ul>
+  <%end %>
+<%end %>
+<h4> Create new Category</h4>
+<div class="center jumbotron">
+<%=form_for @category do |f| %>
+  <p>
+    <%=f.label :Category %>
+    <%=f.text_field :name , class: "form-control", placeholder: "Enter Category"%>
+  </p>
+  <p>
+    <%=f.submit%>
+  </p>
+    </div>
+<%end%>

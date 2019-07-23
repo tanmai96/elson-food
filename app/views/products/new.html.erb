@@ -1,0 +1,27 @@
+<% if @product.errors.any? %>
+  <% @product.errors.full_messages.each do |msg| %>
+    <ul>
+      <li><%=msg%></li>
+    </ul>
+  <%end %>
+<%end %>
+<h4> Create new Product</h4>
+<div class="center jumbotron">
+  <%=form_for @product do |f| %>
+    <p>
+      <%=f.label :Product %>
+      <%=f.text_field :name , class: "form-control", placeholder: "Enter product name"%>
+    </p>
+    <p>
+      <%=f.label :Description %>
+      <%=f.text_field :description , class: "form-control", placeholder: "Enter Description of the product"%>
+    </p>
+    <p>
+      <%=f.label :Category %>
+      <%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: false %>
+    </p>
+    <p>
+      <%=f.submit%>
+    </p>
+    </div>
+  <%end%>

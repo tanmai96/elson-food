@@ -1,0 +1,39 @@
+<h4>Create a new Variant</h4>
+<% if @variant.errors.any? %>
+  <% @variant.errors.full_messages.each do |msg| %>
+    <ul>
+      <li><%=msg%></li>
+    </ul>
+  <%end %>
+<%end %>
+<div class="center jumbotron">
+  <%=form_for @variant do |f| %>
+    <p>
+      <%=f.label :Name %>
+      <%=f.text_field :name , class: "form-control", placeholder: "Enter variant"%>
+    </p>
+    <p>
+      <%=f.label :Mode%>
+      <%=f.text_field :mode, class: 'form-control', placeholder: 'Enter Mode of the variant' %>
+    </p>
+    <p>
+      <%=f.label :Piece %>
+      <%=f.text_field :pieces, class: 'form-control', placeholder: 'Enter number of pieces per Box'%>
+    </p>
+    <p>
+      <%=f.label :'Mod size'%>
+      <%=f.text_field :box_size, class: 'form-control', placeholder: 'Enter Number of Box/Jar' %>
+    </p>
+    <p>
+      <%=f.label :MRP %>
+      <%=f.text_field :MRP, class: 'form-control',placeholder: 'Enter Maximum Retail Price'%>
+    </p>
+    <p>
+      <%=f.label :'Product Name' %>
+      <%= f.collection_select :product_id, Product.order(:name), :id, :name %>
+    </p>
+    <p>
+      <%=f.submit class: 'cbsdbc'%>
+    </p>
+    </div>
+  <%end%>
